@@ -1,6 +1,7 @@
 body{
     background-color: #f2f4f8;
     margin: 0;
+    height: 100%;
 }
 
 .header{
@@ -73,7 +74,8 @@ body{
 .content-wrap{
     background-color: white;
     margin: auto;
-    max-width: 960px;   
+    max-width: 960px;  
+    min-height: 100%s; 
 }
 
 .content-wrap .submenu{
@@ -95,6 +97,7 @@ body{
 
 .content{
     background-color: white;
+    min-width: 500px;
 }
 
 h1{
@@ -276,6 +279,8 @@ li a:hover{
     display: block;
     color: #99a1b3;
     font: 12px Arial;
+    margin-top: -50px;
+    height: 50px;
 }
 
 .nav2 {
@@ -318,6 +323,7 @@ li a:hover{
         display: block;
         background-color: #2d313d;
         color: white;
+        min-width: 500px;
 
     }
 
