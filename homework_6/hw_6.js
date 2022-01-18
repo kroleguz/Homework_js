@@ -1,103 +1,133 @@
-//Первое практическое задание
+//Первое задание
 function Cat(name) {
 
-    var foodAmount = 50;
+    var foodAmount = 75;
 	
 	this.dailyNorm = function(amount) {
 
         if(!arguments.length) return formatFoodAmount();
         
         if (amount < 50) {
+
             throw new Error('Мало корма');
-    }
+}
         if (amount > 100) {
+
             throw new Error('Много корма');
-    }
-	
+}
         foodAmount = amount;
         
 }
 
 function formatFoodAmount() {
 
-     return foodAmount + ' гр.';
+    return foodAmount + ' гр.';
 
 }
 
     this.name = name;
-	
-    this.feed = function() {
 
-        console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
-    };
+    this.dailyNorm = function() {
+
+        console.log('Насыпаем в миску ' + formatFoodAmount() + ' корма.');
+    
 }
 
-    var barsik = new Cat('Барсик');
+    this.feed = function() {
 
-    barsik.feed();
+        return this.dailyNorm();
 
-    barsik.dailyNorm(75);
+};
 
-    alert( barsik.dailyNorm() );
+}
 
-//Второе и третье практическое задание
+var barsik = new Cat('Барсик');
 
-function Animal(name){
+barsik.feed();
 
-	var foodAmount = 50;
+barsik.dailyNorm(75);
+
+alert( barsik.dailyNorm() );
+
+// Второе и третье задание
+
+function Animal(name) {
+
+	var foodAmount = 75;
 	
 	var self = this;
 
-function formatFoodAmount() {
-
-    return foodAmount + ' гр.';
+    this.dailyNorm = function(amount) {
+        
+        if(!arguments.length) return formatFoodAmount();
+                
+        if (amount < 50) {
+        
+            throw new Error('Мало корма');
 }
-
-    this._name = name;
-
-    this.feed = function() {
-
-        console.log('Насыпаем в миску ' + formatFoodAmount() + ' корма.');
-
-        return self;
-    };
+        if (amount > 100) {
+        
+            throw new Error('Много корма');
 }
-
-function Cat(name){
-
-	Animal.apply(this, arguments);
-
-    var self = this
-	
-	var animalFeed = this.feed;
-
+        foodAmount = amount;
+                
+}
+        
+    function formatFoodAmount() {
+        
+        return foodAmount + ' гр.';
+        
+}
+        
+        this.name = name;
+        
+        this.dailyNorm = function() {
+        
+            console.log('Насыпаем в миску ' + formatFoodAmount() + ' корма.');
+            
+}
+        
         this.feed = function() {
+        
+            return this.dailyNorm();
+        
+};
 
-        animalFeed();
-
-        this.feedNew();
-
-        this.stroke();
-
-    }
-
-        this.feedNew = function() {
-
-        console.log('Кот доволен  ^_^');
-
-        return self;
-
-    }
-
-        this.stroke = function() {
-
-        console.log('Гладим кота'); 
-
-        return self;
-
-        }
 }
 
-    var barsik = new Cat('Барсик');
-
-    barsik.feed();
+function Cat(name) {
+        
+    Animal.apply(this, arguments);
+        
+    var self = this
+            
+    var animalFeed = this.feed;
+        
+    this.feed = function() {
+        
+        animalFeed();
+        
+        this.feedNew();
+        
+        return this;
+        
+}
+        
+    this.feedNew = function() {
+        
+        console.log('Кот доволен  ^_^');
+        
+        return this;
+        
+}
+        
+    this.stroke = function() {
+        
+        console.log('Гладим кота'); 
+        
+}
+}      
+     
+var barsik = new Cat('Барсик');
+        
+barsik.feed().stroke();
